@@ -9,11 +9,11 @@
     <meta property="og:title" content="Uspacy is a single workspace for managing key processes of your organization"/>
     <meta property="og:description" content="Uspacy is a single workspace for organizing daily company processes: team communication, collaboration, tasks, CRM"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://uspacy.partners"/>
-    <meta property="og:site_name" content="Uspacy.com.ua"/>
+    <meta property="og:url" content="uspacy.partners"/>
+    <meta property="og:site_name" content="uspacy.partners"/>
     <meta property="og:image" content="http://uspacy.partners/images/ua_mediacard_uspacy.jpg"/>
     <meta property="og:locale" content="en"/>
-    <meta name="description" content="Uspacy — це єдиний робочій простір для організації щоденних процесів компанії: спілкування в команді, спільна робота, завдання, CRM"/>
+    <meta name="description" content="Uspacy is a single workspace for organizing daily company processes: team communication, collaboration, tasks, CRM">
 
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="styles/jquery-countryselector.min.css" rel="stylesheet">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-373P5T5VR0"></script>
     <script>
@@ -147,7 +149,7 @@
                                     <div class="item-left-side">
                                         <p class="text-medium">
                                             Uspacy is a complete platform for internal communications and interaction with employees of organizations of any size - from small teams to huge companies.
-                                        </p>
+                                        </p> 
                                         <a class="accordion-link" href="https://uspacy.com.ua/">Learn more about Uspacy <img src="./images/arrow-right.svg"></a>
                                     </div>
                                     <div class="item-right-side">
@@ -368,6 +370,7 @@
                         <input name="username" class="form-input text-light" type="text" placeholder="Name and surname" autocomplete="off">
                         <input name="email" class="form-input text-light" type="text" placeholder="E-mail" autocomplete="off">
                         <input name="phone" class="form-input text-light" type="number" placeholder="Phone number" autocomplete="off">
+                        <select data-role="country-selector" name="country" class="select-country text-light"></select>
                         <div class="checkbox-wrapper">
                             <input  type="checkbox" name="agree" class="form-checkbox">
                             <label for="agree" class="text-mini">I agree to the processing of personal data in accordance with the <a href="privacypolicy.html" style="color: #4238E5;">privacy policy.</a></label>
@@ -433,6 +436,8 @@
 </body>
 <script  type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script  type="text/javascript" src="https://kenwheeler.github.io/slick/slick/slick.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="jquery.countryselector.js"></script>
 <script  src="script.js"></script>
 <script  src="formControl.js"></script>
 </html>

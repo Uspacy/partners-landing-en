@@ -799,6 +799,16 @@ h6 {
     animation: 10s anim1 infinite linear;
 }
 
+.select-country {
+    border: 0;
+    border-bottom: 2px solid #fff;
+    background: none;
+    color: #7373B1;
+    padding: 19.5px 0 19.5px 0;
+    margin-bottom: 15px;
+    outline: 0;
+}
+
 @keyframes anim1 {
     from {
         background-position: 0 0;

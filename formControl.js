@@ -6,11 +6,13 @@ const formAction = (parent, successForm) => {
   const usernameEl = form.querySelector("[name='username']");
   const emailEl = form.querySelector("[name='email']");
   const phoneEl = form.querySelector("[name='phone']");
+  const countryEl = form.querySelector("[name='country']");
   const checkBoxEl = form.querySelector("[name='agree']");
   const submitBtn = form.querySelector("[name='submit']");
   const succesedForm = document.querySelector(successForm);
   console.log('usernameEl: ', usernameEl)
   console.log('succesedForm: ', succesedForm)
+  // console.log("countryEl", countryEl.value);
   const checkUsername = () => {
     let valid = false;
 
@@ -88,6 +90,7 @@ const formAction = (parent, successForm) => {
       email: emailEl.value,
       phone: phoneEl.value,
       username: usernameEl.value,
+      country: countryEl.value,
     });
 
   });
@@ -128,14 +131,15 @@ const formAction = (parent, successForm) => {
     })
   );
 
-  async function sendPostData({ email, phone, username }) {
+  async function sendPostData({ email, phone, username, country }) {
     try {
       const url =
-        "https://docs.google.com/forms/u/2/d/e/1FAIpQLSfRv2Kcbj6sGC5cBoBg1wrT5IeduFIeHSh8Lw9l2bRQ7LEVsw/formResponse";
+        "https://docs.google.com/forms/u/3/d/e/1FAIpQLSdv8FyRCPxjLWyLHQt1xqAaNsTX6CxwB1ALLT66AbROFydNbg/formResponse";
       const formData = new FormData();
       formData.append("entry.724546656", username);
       formData.append("entry.369619181", email);
       formData.append("entry.1557246847", phone);
+      formData.append("entry.1006869254", country);
       const response = await fetch(url, {
         method: "POST",
         body: formData,
