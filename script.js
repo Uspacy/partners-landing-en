@@ -3,15 +3,15 @@ $(document).ready(function () {
   const body = document.body;
   const header = document.querySelector('header')
   
-  /* INIT CAROUSEL */
+  // /* INIT CAROUSEL */
 
-  $(".testimonial-wrapper").slick({
-    dots: true,
-    speed: 600,
-    slidesToShow: 1,
-    arrows: false,
-    fade: true
-  });
+  // $(".testimonial-wrapper").slick({
+  //   dots: true,
+  //   speed: 600,
+  //   slidesToShow: 1,
+  //   arrows: false,
+  //   fade: true
+  // });
 
   /* POPUP SCRIPTS */
 
