@@ -1007,6 +1007,14 @@ input::-webkit-inner-spin-button {
     margin-top: 18px;
 }
 
+.checkbox-wrapper > label > a {
+    color: #13D9F7;
+}
+
+.pop-up-content button {
+    margin-bottom: 40px;
+}
+
 .form-checkbox[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
@@ -1230,6 +1238,7 @@ input::-webkit-inner-spin-button {
     z-index: 0;
     padding: 95px 126px 84px 110px;
     transition: 0.3s ease;
+    overflow-y: auto;
 }
 
 .pop-up-wrapper.active {
