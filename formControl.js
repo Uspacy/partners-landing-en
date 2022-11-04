@@ -30,8 +30,8 @@ const formAction = (parent, successForm) => {
   };
 
   const checkPhone = () => {
-    var isValidPhone = /^([+]?[0-9\s-\(\)]{3,25})*$/i.test(phoneEl.value);
-
+    var isValidPhone = typeof string
+    // var isValidPhone = /^([+]?[0-9\s-\(\)]{3,25})*$/i.test(phoneEl.value);
     return isValidPhone;
   };
 
@@ -65,20 +65,19 @@ const formAction = (parent, successForm) => {
     
     function formValidate() {
       let isUsernameValid = checkUsername(),
-      isEmailValid = checkEmail(),
-      isPhoneValid = checkPhone(),
-      isCheckBoxValid = checkCheckBox();
+        isEmailValid = checkEmail(),
+        isPhoneValid = checkPhone(),
+        isCheckBoxValid = checkCheckBox();
 
-    let isFormValid =
-      isUsernameValid && isEmailValid && isPhoneValid && isCheckBoxValid;
+      let isFormValid =
+        isUsernameValid && isEmailValid && isPhoneValid && isCheckBoxValid;
 
-    if (isFormValid) {
-      
-      submitBtn.disabled = false;
-    } else {
-      submitBtn.disabled = true;
+      if (isFormValid) {
+        submitBtn.disabled = false;
+      } else {
+        submitBtn.disabled = true;
+      }
     }
-  }
 
   [usernameEl, emailEl, phoneEl, checkBoxEl].forEach((item) => {
     item.addEventListener("input", formValidate);
