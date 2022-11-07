@@ -1670,6 +1670,87 @@ input::-webkit-inner-spin-button {
     margin-right: 30px;
 }
 
+/* cookies popup start */
+
+.notification-main.notification-default.enzuzo-animate.enzuzo-slide {
+    flex-direction: column;
+}
+
+.notification-main .notification-buttons {
+    justify-content: space-between !important;
+    flex-direction: row-reverse;
+    margin-top: 30px;
+}
+
+.notification-text {
+    color: #FFFFFF;
+}
+
+.notification-main.notification-default .notification-desc {
+    font-size: 10px;
+    line-height: 15px;
+    font-weight: 300;
+    color: #fff
+}
+
+.notification-main .notification-buttons .close-banner-button {
+    display: none !important;
+}
+
+.notification-main .notification-buttons .cookieButtonWrap {
+    flex-direction: row-reverse;
+}
+
+.enzuzo-notification-button .notification-button .button-default .button-accept {
+    margin-left: 70px;
+}
+
+.notification-main .button-default {
+    border-radius: 17px !important;
+    margin-right: 70px !important;
+}
+
+.notification-main .button-default:last-child {
+    margin-right: 0px;
+    background-color: none !important;
+    color: #FFFFFF !important;
+    text-decoration: underline !important;
+}
+
+.notification-main .notification-text.notification-text-large {
+    max-width: 1204px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.notification-main .notification-buttons {
+    max-width: 1204px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.notification-main.default-large,
+.notification-main.default-top-large {
+    padding-top: 25px;
+    padding-bottom: 34px;
+}
+
+.cookies-title {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 400;
+
+}
+
+/* cookies popup end */
+
 /*--------------------RESPONSIVE--------------------*/
 
 @media(max-width: 1199px) {
@@ -1832,6 +1913,18 @@ input::-webkit-inner-spin-button {
     }
     .accordion {
         margin-bottom: 32px;
+    }
+    .accordion-item {
+        padding-bottom: 40px;
+    }
+    .accordion-ul {
+        margin-top: 24px;
+    }
+    .top-accordion-link {
+        display: none;
+    }
+    .bot-accordion-link {
+        display: block;
     }
     .partner-earnings-items {
         margin-bottom: 32px;

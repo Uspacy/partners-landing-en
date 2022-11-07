@@ -10,9 +10,6 @@ const formAction = (parent, successForm) => {
   const checkBoxEl = form.querySelector("[name='agree']");
   const submitBtn = form.querySelector("[name='submit']");
   const succesedForm = document.querySelector(successForm);
-  // console.log('usernameEl: ', usernameEl)
-  // console.log('succesedForm: ', succesedForm)
-  // console.log("countryEl", countryEl.value);
   const checkUsername = () => {
     let valid = false;
 
@@ -29,9 +26,16 @@ const formAction = (parent, successForm) => {
     return valid;
   };
 
+  phoneEl.addEventListener("focus", () => {
+    if (!/^\+\d*$/.test(phoneEl.value)) phoneEl.value = "+";
+  });
+
+  phoneEl.addEventListener("keypress", (e) => {
+    if (!/\d/.test(e.key)) e.preventDefault();
+  });
+
   const checkPhone = () => {
     var isValidPhone = typeof string
-    // var isValidPhone = /^([+]?[0-9\s-\(\)]{3,25})*$/i.test(phoneEl.value);
     return isValidPhone;
   };
 
