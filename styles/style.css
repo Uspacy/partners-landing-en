@@ -1708,6 +1708,7 @@ input::-webkit-inner-spin-button {
 .notification-main .button-default {
     border-radius: 17px !important;
     margin-right: 70px !important;
+    margin-left: 0;
 }
 
 .notification-main .button-default:last-child {
@@ -1737,10 +1738,22 @@ input::-webkit-inner-spin-button {
 
 .notification-main.default-large,
 .notification-main.default-top-large {
-    padding-top: 25px;
-    padding-bottom: 34px;
+    padding-top: 25px !important;
+    padding-bottom: 34px !important;
 }
 
+#cookie-notification__decline {
+    border-radius: 17px !important;
+    margin: 0;
+}
+
+#cookie-notification__accept {
+    border-radius: 17px !important;
+}
+
+.enzuzo-cookieButtonWrap .cookieButtonWrap .enzuzo-notification-button .notification-button .button-default .button-accept{
+    border-radius: 17px !important;
+}
 .cookies-title {
     display: block;
     margin-bottom: 10px;
