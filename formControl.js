@@ -58,7 +58,7 @@ const formAction = (parent, successForm) => {
   const isEmailValid = (email) => {
     const re =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    return re.test(email);
+    return re.test(email)
   };
 
   const isRequired = (value) => (value === "" ? false : true);
@@ -149,6 +149,7 @@ const formAction = (parent, successForm) => {
         mode: "no-cors",
       });
       if (response) {
+        form.reset()
         form.style.display = "none";
         succesedForm.style.display = "block";
       }
@@ -157,7 +158,7 @@ const formAction = (parent, successForm) => {
           (succesedForm.style.display = "none"),
           (form.style.display = "flex")
         ),
-        3000
+        5000
       );
     } catch (err) {
       console.log("Виникла помилка при відправці!");
