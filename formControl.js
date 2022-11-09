@@ -1,15 +1,15 @@
 
 
 const formAction = (parent, successForm) => {
-
   const form = document.querySelector(parent);
   const usernameEl = form.querySelector("[name='username']");
   const emailEl = form.querySelector("[name='email']");
   const phoneEl = form.querySelector("[name='phone']");
-  const countryEl = form.querySelector("[name='country']");
   const checkBoxEl = form.querySelector("[name='agree']");
   const submitBtn = form.querySelector("[name='submit']");
   const succesedForm = document.querySelector(successForm);
+  const emailE = form.querySelector(".input-error");
+  const phoneE = form.querySelector(".phone-error");
   const checkUsername = () => {
     let valid = false;
 
@@ -35,9 +35,29 @@ const formAction = (parent, successForm) => {
   });
 
   const checkPhone = () => {
-    var isValidPhone = typeof string
+    const min = 9,
+      max = 19;
+    const phone = phoneEl.value.trim();
+    let isValidPhone = false;
+    if (!isBetween(phone.length, min, max)) {
+      isValidPhone = false;
+    } else {
+      isValidPhone = true;
+    }
     return isValidPhone;
   };
+
+  function phoneError() {
+    if (checkPhone(phoneEl.value)) {
+      phoneEl.style.borderColor = "#2CD652";
+      phoneE.style.display = "none";
+    } else {
+      phoneEl.style.borderColor = "#EE8282";
+      phoneE.style.display = "block";
+    }
+  }
+
+  phoneEl.addEventListener("input", phoneError);
 
   const checkCheckBox = () => {
     let valid = checkBoxEl.checked;
@@ -47,41 +67,51 @@ const formAction = (parent, successForm) => {
   const checkEmail = () => {
     let valid = false;
     const email = emailEl.value.trim();
-    if (!isRequired(email) && !isEmailValid(email)) {
-    } else {
+    if (isRequired(email) && isEmailValid(email)) {
       valid = true;
+    } else {
+      valid = false;
     }
-
     return valid;
   };
 
   const isEmailValid = (email) => {
     const re =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    return re.test(email)
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+    return re.test(email);
   };
+
+  function onInput() {
+    if (isEmailValid(emailEl.value)) {
+      emailEl.style.borderColor = "#2CD652";
+      emailE.style.display = "none";
+    } else {
+      emailEl.style.borderColor = "#EE8282";
+      emailE.style.display = "block";
+    }
+  }
+
+  emailEl.addEventListener("input", onInput);
 
   const isRequired = (value) => (value === "" ? false : true);
   const isBetween = (length, min, max) =>
     length < min || length > max ? false : true;
 
-    
-    
-    function formValidate() {
-      let isUsernameValid = checkUsername(),
-        isEmailValid = checkEmail(),
-        isPhoneValid = checkPhone(),
-        isCheckBoxValid = checkCheckBox();
+  function formValidate() {
+    let isUsernameValid = checkUsername(),
+      isEmailValid = checkEmail(),
+      isPhoneValid = checkPhone(),
+      isCheckBoxValid = checkCheckBox();
 
-      let isFormValid =
-        isUsernameValid && isEmailValid && isPhoneValid && isCheckBoxValid;
+    let isFormValid =
+      isUsernameValid && isEmailValid && isPhoneValid && isCheckBoxValid;
 
-      if (isFormValid) {
-        submitBtn.disabled = false;
-      } else {
-        submitBtn.disabled = true;
-      }
+    if (isFormValid) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
     }
+  }
 
   [usernameEl, emailEl, phoneEl, checkBoxEl].forEach((item) => {
     item.addEventListener("input", formValidate);
@@ -93,12 +123,8 @@ const formAction = (parent, successForm) => {
       email: emailEl.value,
       phone: phoneEl.value,
       username: usernameEl.value,
-      country: countryEl.value,
     });
-
   });
-
-
 
   const debounce = (fn, delay = 500) => {
     let timeoutId;
@@ -149,14 +175,13 @@ const formAction = (parent, successForm) => {
         mode: "no-cors",
       });
       if (response) {
-        form.reset()
+        form.reset();
         form.style.display = "none";
         succesedForm.style.display = "block";
       }
       setTimeout(
         () => (
-          (succesedForm.style.display = "none"),
-          (form.style.display = "flex")
+          (succesedForm.style.display = "none"), (form.style.display = "flex")
         ),
         5000
       );
@@ -164,8 +189,7 @@ const formAction = (parent, successForm) => {
       console.log("Виникла помилка при відправці!");
     }
   }
-
-}
+};
 
 
 formAction(".footer-form", ".footer-success")

@@ -1073,6 +1073,30 @@ input::-webkit-inner-spin-button {
     width: 100%;
 }
 
+.input-error {
+    color: #EE8282;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.phone-error {
+    display: none;
+}
+
+.email-error {
+    display: none;
+}
+
+.input-error::before {
+    content: ' ';
+    background-image: url(../images/input-error.svg);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin-right: 8px;
+}
+
 .succesed-form{ 
     display: none;
     margin-top: 59px;
@@ -1649,7 +1673,7 @@ input::-webkit-inner-spin-button {
 }
 
 .purpose {
-    width: 50%;
+    width: 36%;
 }
 
 .retantion {
@@ -1754,12 +1778,17 @@ input::-webkit-inner-spin-button {
 .enzuzo-cookieButtonWrap .cookieButtonWrap .enzuzo-notification-button .notification-button .button-default .button-accept{
     border-radius: 17px !important;
 }
+
 .cookies-title {
     display: block;
     margin-bottom: 10px;
     font-size: 12px;
     font-weight: 400;
 
+}
+
+.mobile-link {
+    display: none;
 }
 
 /* cookies popup end */
@@ -1906,6 +1935,21 @@ input::-webkit-inner-spin-button {
 }
 
 @media(max-width: 575px) {
+    .img-wrapper img {
+        width: 523px;
+        left: 0;
+    }
+    .list-of-partners span {
+        background: linear-gradient(90deg, #4238e5 0.36%, #e01daa 93.07%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .mobile-link {
+        display: flex;
+    }
+    .mobile-link-default {
+        display: none;
+    }
     .item-list {
         width: 100%;
         margin-bottom: 54px;
@@ -1964,6 +2008,19 @@ input::-webkit-inner-spin-button {
     .testimonials {
         padding-bottom: 139px;
     }
+    .slick-list {
+        padding: 10px;
+    }
+    .slick-dots {
+        left: 10px;
+    }
+    .title-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .date-publish {
+        margin-top: 7px;
+    }
 }
 
 @media(max-width: 479px) {
@@ -1985,4 +2042,8 @@ input::-webkit-inner-spin-button {
         left: 0;
         top: 287px;
     }
+}
+
+.noWrap {
+    white-space: nowrap;
 }
