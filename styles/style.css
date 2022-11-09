@@ -648,6 +648,10 @@ h6 {
     font-size: 1rem;
 }
 
+.bot-accordion-link {
+    display: none;
+}
+
 .accordion-li {
     margin-bottom: 16px;
 }
