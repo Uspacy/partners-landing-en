@@ -630,9 +630,8 @@ h6 {
 
 .accordion-item-expanded.active {
     display: block;
+    transition: 3s ease-in;
 }
-
-
 
 .accordion-item:hover {
     cursor: pointer;
@@ -646,6 +645,10 @@ h6 {
     font-family: 'e-ukraine', 'Arial';
     font-weight: 700;
     font-size: 1rem;
+}
+
+.accordion-link:hover {
+    color: #857DFF;
 }
 
 .bot-accordion-link {
@@ -1170,6 +1173,10 @@ input::-webkit-inner-spin-button {
     border-bottom: 10px solid #4238E5;
     width: 100%;
     z-index: 1;
+    background-image: url('../images/bg-inner.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .stroke-plus-btn {
@@ -1317,6 +1324,10 @@ input::-webkit-inner-spin-button {
 .pop-up-button-join .plus::before,
 .plus::after {
     background-color: #4238E5;
+}
+
+.pop-up-header .close-popup {
+    transform: rotate(45deg);
 }
 
 .pop-up-footer button {
@@ -1825,7 +1836,10 @@ input::-webkit-inner-spin-button {
 @media(max-width: 1024px) {
     .benefits-item {
         width: calc(50% - 50px);
-        margin-bottom: 53px;
+        margin-bottom: 78px;
+    }
+    .benefits-item:last-child {
+        margin-bottom: 0;
     }
     .accordion-wrapper {
         padding-left: 0;
@@ -1939,6 +1953,9 @@ input::-webkit-inner-spin-button {
 }
 
 @media(max-width: 575px) {
+    .accordion-link {
+       font-size: 12px;
+    }
     .img-wrapper img {
         width: 523px;
         left: 0;
@@ -1975,8 +1992,8 @@ input::-webkit-inner-spin-button {
     .accordion {
         margin-bottom: 32px;
     }
-    .accordion-item {
-        padding-bottom: 40px;
+    .bot-accordion-link {
+        padding-bottom: 20px;
     }
     .accordion-ul {
         margin-top: 24px;
