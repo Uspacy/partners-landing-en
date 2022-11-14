@@ -2026,6 +2026,21 @@ input::-webkit-inner-spin-button {
 }
 
 @media(max-width: 575px) {
+    .main-btn-2 {
+        width: 100%;
+    }
+    .link-3 {
+        max-width: 100%;
+    }
+    .be-a-partner-btn{
+        width: 100%;
+    }
+    .magenta-btn {
+        max-width: 100%
+    }
+    footer {
+        padding-top: 0
+    }
     .accordion-link {
        font-size: 12px;
     }
