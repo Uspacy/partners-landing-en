@@ -82,16 +82,20 @@ $(document).ready(function () {
       };
     });
 
-    window.addEventListener("scroll", () => {
-      const setColor = offsetSections
-        .filter((item) => window.scrollY >= item.offset - deltaHeight)
-        .at(-1).color;
-      const classListClear = ["blue", "white", "dark"].filter(
-        (item) => item !== setColor
-      );
-      header.classList.remove(...classListClear);
-      !header.classList.contains(setColor) && header.classList.add(setColor);
-    });
+    const multipleEventListener = (event) => {
+      window.addEventListener(event, () => {
+        const setColor = offsetSections
+          .filter((item) => window.scrollY >= item.offset - deltaHeight)
+          .at(-1).color;
+        const classListClear = ["blue", "white", "dark"].filter(
+          (item) => item !== setColor
+        );
+        header.classList.remove(...classListClear);
+        !header.classList.contains(setColor) && header.classList.add(setColor);
+      });
+    };
+    multipleEventListener("scroll");
+    multipleEventListener("load");
   };
 
   listenChangeColor();
