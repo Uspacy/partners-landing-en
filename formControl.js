@@ -189,6 +189,14 @@ const formAction = (parent, successForm) => {
       console.log("Виникла помилка при відправці!");
     }
   }
+
+  const select = form.querySelector(".select-country");
+  select.addEventListener("change", () => {
+    select.style.color = parent === ".footer-form" ? "#857dff" : "#fff";
+    select
+      .querySelectorAll("option")
+      .forEach((opt) => (opt.style.color = "#7373b1"));
+  });
 };
 
 formAction(".footer-form", ".footer-success");
