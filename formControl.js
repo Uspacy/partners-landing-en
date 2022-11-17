@@ -1,8 +1,7 @@
-
-
 const formAction = (parent, successForm) => {
   const form = document.querySelector(parent);
   const usernameEl = form.querySelector("[name='username']");
+  const countryEl = form.querySelector("[name='country']");
   const emailEl = form.querySelector("[name='email']");
   const phoneEl = form.querySelector("[name='phone']");
   const checkBoxEl = form.querySelector("[name='agree']");
@@ -123,6 +122,7 @@ const formAction = (parent, successForm) => {
       email: emailEl.value,
       phone: phoneEl.value,
       username: usernameEl.value,
+      country: countryEl.value,
     });
   });
 
@@ -189,8 +189,15 @@ const formAction = (parent, successForm) => {
       console.log("Виникла помилка при відправці!");
     }
   }
+
+  const select = form.querySelector(".select-country");
+  select.addEventListener("change", () => {
+    select.style.color = parent === ".footer-form" ? "#857dff" : "#fff";
+    select
+      .querySelectorAll("option")
+      .forEach((opt) => (opt.style.color = "#7373b1"));
+  });
 };
 
-
-formAction(".footer-form", ".footer-success")
-formAction(".popup-form", ".popup-success")
+formAction(".footer-form", ".footer-success");
+formAction(".popup-form", ".popup-success");
