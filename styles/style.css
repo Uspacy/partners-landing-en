@@ -999,6 +999,16 @@ footer {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.footer-form .select-country:-webkit-autofill,
+.footer-form .select-country:-webkit-autofill:hover,
+.footer-form .select-country:-webkit-autofill:focus,
+.footer-form .select-country:-webkit-autofill:active {
+  -webkit-text-fill-color: #857dff !important;
+  color: #857dff !important;
+  box-shadow: 0 0 0 0 inherit inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /*popup-form*/
 
 .popup-input {
@@ -1031,6 +1041,16 @@ footer {
 .popup-input:-webkit-autofill:hover,
 .popup-input:-webkit-autofill:focus,
 .popup-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 0 inherit inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.popup-form .select-country:-webkit-autofill,
+.popup-form .select-country:-webkit-autofill:hover,
+.popup-form .select-country:-webkit-autofill:focus,
+.popup-form .select-country:-webkit-autofill:active {
   -webkit-text-fill-color: #fff !important;
   color: #fff !important;
   box-shadow: 0 0 0 0 inherit inset !important;
