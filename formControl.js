@@ -74,6 +74,8 @@ const formAction = (parent, successForm) => {
     return valid;
   };
 
+  const checkCountry = () => Boolean(countryEl.value);
+
   const isEmailValid = (email) => {
     const re =
       /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -100,10 +102,15 @@ const formAction = (parent, successForm) => {
     let isUsernameValid = checkUsername(),
       isEmailValid = checkEmail(),
       isPhoneValid = checkPhone(),
-      isCheckBoxValid = checkCheckBox();
+      isCheckBoxValid = checkCheckBox(),
+      isCheckCountry = checkCountry();
 
     let isFormValid =
-      isUsernameValid && isEmailValid && isPhoneValid && isCheckBoxValid;
+      isUsernameValid &&
+      isEmailValid &&
+      isPhoneValid &&
+      isCheckCountry &&
+      isCheckBoxValid;
 
     if (isFormValid) {
       submitBtn.disabled = false;
@@ -112,7 +119,7 @@ const formAction = (parent, successForm) => {
     }
   }
 
-  [usernameEl, emailEl, phoneEl, checkBoxEl].forEach((item) => {
+  [usernameEl, emailEl, phoneEl, countryEl, checkBoxEl].forEach((item) => {
     item.addEventListener("input", formValidate);
   });
 
@@ -150,6 +157,9 @@ const formAction = (parent, successForm) => {
           break;
         case "phone":
           checkPhone();
+          break;
+        case "country":
+          checkCountry();
           break;
         case "checkbox":
           checkCheckBox();
@@ -192,10 +202,15 @@ const formAction = (parent, successForm) => {
 
   const select = form.querySelector(".select-country");
   select.addEventListener("change", () => {
-    select.style.color = parent === ".footer-form" ? "#857dff" : "#fff";
-    select
-      .querySelectorAll("option")
-      .forEach((opt) => (opt.style.color = "#7373b1"));
+    console.log("value:", select.value);
+    if (select.value) {
+      select.style.color = parent === ".footer-form" ? "#857dff" : "#fff";
+      select
+        .querySelectorAll("option")
+        .forEach((opt) => (opt.style.color = "#7373b1"));
+    } else {
+      select.style.color = "#7373b1";
+    }
   });
 };
 
