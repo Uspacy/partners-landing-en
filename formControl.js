@@ -146,7 +146,7 @@ const formAction = (parent, successForm) => {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    sendPostData({
+    debounceSendPostData({
       email: emailEl.value,
       phone: phoneEl.value,
       username: usernameEl.value,
@@ -220,6 +220,8 @@ const formAction = (parent, successForm) => {
       console.log("Виникла помилка при відправці!");
     }
   }
+
+  const debounceSendPostData = debounce(sendPostData);
 
   const select = form.querySelector(".select-country");
   select.addEventListener("change", () => {
