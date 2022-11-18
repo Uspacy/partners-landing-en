@@ -1,14 +1,16 @@
 const formAction = (parent, successForm) => {
   const form = document.querySelector(parent);
   const usernameEl = form.querySelector("[name='username']");
-  const countryEl = form.querySelector("[name='country']");
   const emailEl = form.querySelector("[name='email']");
   const phoneEl = form.querySelector("[name='phone']");
+  const countryEl = form.querySelector("[name='country']");
   const checkBoxEl = form.querySelector("[name='agree']");
   const submitBtn = form.querySelector("[name='submit']");
   const succesedForm = document.querySelector(successForm);
   const emailE = form.querySelector(".input-error");
   const phoneE = form.querySelector(".phone-error");
+  const countryE = form.querySelector(".country-error");
+
   const checkUsername = () => {
     let valid = false;
 
@@ -93,6 +95,25 @@ const formAction = (parent, successForm) => {
   }
 
   emailEl.addEventListener("input", onInput);
+
+  //country Error
+  function setCountryErr(countryEl, countryE) {
+    countryE.style.display = "block";
+    countryEl.style.borderColor = "#EE8282";
+  }
+
+  function removeCountryErr(countryEl, countryE) {
+    countryEl.style.borderColor = "#fff";
+    countryE.style.display = "none";
+  }
+
+  checkBoxEl.addEventListener("change", (event) => {
+    if (event.target.checked && !countryEl.value) {
+      setCountryErr(countryEl, countryE);
+    } else {
+      removeCountryErr(countryEl, countryE);
+    }
+  });
 
   const isRequired = (value) => (value === "" ? false : true);
   const isBetween = (length, min, max) =>
@@ -202,12 +223,12 @@ const formAction = (parent, successForm) => {
 
   const select = form.querySelector(".select-country");
   select.addEventListener("change", () => {
-    console.log("value:", select.value);
     if (select.value) {
       select.style.color = parent === ".footer-form" ? "#857dff" : "#fff";
       select
         .querySelectorAll("option")
         .forEach((opt) => (opt.style.color = "#7373b1"));
+      removeCountryErr(countryEl, countryE);
     } else {
       select.style.color = "#7373b1";
     }

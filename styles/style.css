@@ -1150,6 +1150,10 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 
+.country-error {
+  display: none;
+}
+
 .input-error::before {
   content: " ";
   background-image: url(../images/input-error.svg);
