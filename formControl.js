@@ -13,10 +13,8 @@ const formAction = (parent, successForm) => {
 
   const checkUsername = () => {
     let valid = false;
-
     const min = 3,
-      max = 25;
-
+      max = 35;
     const username = usernameEl.value.trim();
 
     if (!isBetween(username.length, min, max)) {
@@ -141,7 +139,7 @@ const formAction = (parent, successForm) => {
   }
 
   [usernameEl, emailEl, phoneEl, countryEl, checkBoxEl].forEach((item) => {
-    item.addEventListener("input", formValidate);
+    item.addEventListener("input", debounce(formValidate));
   });
 
   form.addEventListener("submit", function (e) {
@@ -169,30 +167,30 @@ const formAction = (parent, successForm) => {
     };
   };
 
-  form.addEventListener(
-    "input",
-    debounce((e) => {
-      switch (e.target.id) {
-        case "username":
-          checkUsername();
-          break;
-        case "email":
-          checkEmail();
-          break;
-        case "phone":
-          checkPhone();
-          break;
-        case "country":
-          checkCountry();
-          break;
-        case "checkbox":
-          checkCheckBox();
-          break;
-        default:
-          return;
-      }
-    })
-  );
+  // form.addEventListener(
+  //   "input",
+  //   debounce((e) => {
+  //     switch (e.target.id) {
+  //       case "username":
+  //         checkUsername();
+  //         break;
+  //       case "email":
+  //         checkEmail();
+  //         break;
+  //       case "phone":
+  //         checkPhone();
+  //         break;
+  //       case "country":
+  //         checkCountry();
+  //         break;
+  //       case "checkbox":
+  //         checkCheckBox();
+  //         break;
+  //       default:
+  //         return;
+  //     }
+  //   })
+  // );
 
   async function sendPostData({ email, phone, username, country }) {
     try {
