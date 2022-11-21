@@ -139,7 +139,7 @@ const formAction = (parent, successForm) => {
   }
 
   [usernameEl, emailEl, phoneEl, countryEl, checkBoxEl].forEach((item) => {
-    item.addEventListener("input", debounce(formValidate));
+    item.addEventListener("input", formValidate);
   });
 
   form.addEventListener("submit", function (e) {
