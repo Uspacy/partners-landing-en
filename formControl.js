@@ -221,7 +221,7 @@ const formAction = (parent, successForm) => {
     }
   }
 
-  const debounceSendPostData = debounce(sendPostData, 6000);
+  const debounceSendPostData = debounce(sendPostData, 7000);
 
   const select = form.querySelector(".select-country");
   select.addEventListener("change", () => {
